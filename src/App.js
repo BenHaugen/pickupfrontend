@@ -37,6 +37,7 @@ class App extends React.Component {
   }
 
   createBasketballGame = (ev) => {
+    alert("Game successfully created. To view game, visit the 'Basketball' section")
     ev.preventDefault()
     // console.log(ev.target.sport.value)
     // console.log(ev.target.city.value)
@@ -50,10 +51,18 @@ class App extends React.Component {
       address: ev.target.address.value,
       date: ev.target.date.value,
       price: ev.target.price.value,
-      contact: ev.target.contact.value
+      contact: ev.target.contact.value,
+      confirmedPlayers: ev.target.confirmedPlayers.value
     }
     this.setState({
       displayBasketballGames: [...this.state.displayBasketballGames, newGame]
+    })
+  }
+
+  increasePlayers = (ev) => {
+    console.log('increase')
+    this.setState({
+      //what goes here?
     })
   }
 
@@ -103,16 +112,16 @@ class App extends React.Component {
       currentDisplay = <OrganizeGames homePageClick={this.homePageClick} createBasketballGame={this.createBasketballGame}/>
     }
     else if (this.state.showBasketballGames !== false) {
-      currentDisplay = <BasketballGames homePageClick={this.homePageClick} displayBasketballGames={this.state.displayBasketballGames}/>
+      currentDisplay = <BasketballGames homePageClick={this.homePageClick} displayBasketballGames={this.state.displayBasketballGames} increasePlayers={this.increasePlayers}/>
     }
     else if (this.state.showGolfGames !== false) {
-      currentDisplay = <GolfGames homePageClick={this.homePageClick}/>
+      currentDisplay = <GolfGames homePageClick={this.homePageClick} displayBasketballGames={this.state.displayBasketballGames} increasePlayers={this.increasePlayers}/>
     }
     else if (this.state.showSoccerGames !== false) {
-      currentDisplay = <SoccerGames homePageClick={this.homePageClick}/>
+      currentDisplay = <SoccerGames homePageClick={this.homePageClick} displayBasketballGames={this.state.displayBasketballGames} increasePlayers={this.increasePlayers}/>
     }
     else if (this.state.showBaseballGames !== false) {
-      currentDisplay = <BaseballGames homePageClick={this.homePageClick}/>
+      currentDisplay = <BaseballGames homePageClick={this.homePageClick} displayBasketballGames={this.state.displayBasketballGames} increasePlayers={this.increasePlayers}/>
     }
     else if (this.state.showHomePage !== false) {
       currentDisplay = <HomePage chooseGameByCity={this.chooseGameByCity} organizeGame={this.organizeGame}

@@ -30,6 +30,7 @@ class CreateGameForm extends React.Component {
       </div>
       <div className="field">
         <label>Date/Time</label>
+        <label>(Ex: Sat, May 18 2:30PM)</label>
         <input type="text" name="date" placeholder="Enter Both Date and Time"></input>
       </div>
       <div className="field">
@@ -39,6 +40,10 @@ class CreateGameForm extends React.Component {
       <div className="field">
         <label>Contact Number/Email</label>
         <input type="text" name="contact" placeholder="Enter Phone Number or Email"></input>
+      </div>
+      <div className="field">
+        <label>Confirmed Number of Players</label>
+        <input type="text" name="confirmedPlayers" placeholder="Enter at Least '1'"></input>
       </div>
         <button className="ui button" type="submit">Submit</button>
       </form>

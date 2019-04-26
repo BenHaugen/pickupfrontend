@@ -19,9 +19,9 @@ class BasketballGames extends Component {
               <div className="row">
                 <div className="ui container">
                   <div className="ui three column grid">
-                    <ul>{this.props.displayBasketballGames.map((game, id) => {
-                        return <GameCard game={game} key={id} />
-                      })}</ul>
+                    {this.props.displayBasketballGames.map((game, id) => {
+                        return <GameCard game={game} key={id} increasePlayers={this.props.increasePlayers}/>
+                      })}
                   </div>
                 </div>
               </div>
