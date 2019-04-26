@@ -9,19 +9,19 @@ class CreateGameForm extends React.Component {
       <div className="field">
         <label>Sport</label>
         <select className="ui fluid dropdown" name="sport">
-          <option value="basketball">Basketball</option>
-          <option value="golf">Golf</option>
-          <option value="soccer">Soccer</option>
-          <option value="baseball">Baseball</option>
+          <option value="Basketball">Basketball</option>
+          <option value="Golf">Golf</option>
+          <option value="Soccer">Soccer</option>
+          <option value="Baseball">Baseball</option>
         </select>
       </div>
       <div className="field">
         <label>City</label>
         <select className="ui fluid dropdown" name="city">
-          <option value="seattle">Seattle</option>
-          <option value="tacoma">Tacoma</option>
-          <option value="bellingham">Bellingham</option>
-          <option value="spokane">Spokane</option>
+          <option value="Seattle">Seattle</option>
+          <option value="Tacoma">Tacoma</option>
+          <option value="Bellingham">Bellingham</option>
+          <option value="Spokane">Spokane</option>
         </select>
       </div>
       <div className="field">
@@ -35,6 +35,10 @@ class CreateGameForm extends React.Component {
       <div className="field">
         <label>Price</label>
         <input type="text" name="price" placeholder="Enter 'Free' or Cost to Play"></input>
+      </div>
+      <div className="field">
+        <label>Contact Number/Email</label>
+        <input type="text" name="contact" placeholder="Enter Phone Number or Email"></input>
       </div>
         <button className="ui button" type="submit">Submit</button>
       </form>

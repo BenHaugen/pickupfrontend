@@ -5,24 +5,29 @@ const GameCard = props => {
     <div className="ui column">
       <div className="card-in-all-cards">
       <div className="ui card">
-
         <div className="content" id="content">
-
           <div className="header">
-
-
           </div>
           <div className="meta text-wrap">
-            Location
+            Sport: {props.game.sport}
           </div>
           <div className="meta text-wrap">
-            Time
+            City: {props.game.city}
           </div>
           <div className="meta text-wrap">
-            Number of Players
+            Address: {props.game.address}
           </div>
           <div className="meta text-wrap">
-            Creator Name/Email
+            Date/Time: {props.game.date}
+          </div>
+          <div className="meta text-wrap">
+            Price: {props.game.price}
+          </div>
+          <div className="meta text-wrap">
+            Contact of Organizer: {props.game.contact}
+          </div>
+          <div className="meta text-wrap">
+            Confirmed Players: 1
           </div>
           <div className="meta text-wrap">
           <button>Confirm Play</button>
@@ -46,6 +51,11 @@ export default GameCard
 //   </div>
 // </div>
 
+
+
+
+
+// <div>
 // <div class="card">
 // <div class="bg-img"></div>
 // <div class="content">
@@ -63,4 +73,5 @@ export default GameCard
 // <div class="content">
 //   <h4>Card title</h4>
 //   <p>Content....</p> <button>Readmore</button> </div>
+// </div>
 // </div>

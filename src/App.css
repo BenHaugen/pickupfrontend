@@ -4,6 +4,10 @@
 
 .App-header {
   background-color: #282c34;
+  background-image: url(https://cdn.wallpapersafari.com/12/97/ga1jWZ.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 25vh;
   display: flex;
   flex-direction: column;
@@ -21,6 +25,10 @@
   overflow-x: scroll;
   min-height: 100px;
   max-width: 100%;
+}
+
+.searchButtons {
+  border: none;
 }
 
 #gameform {
