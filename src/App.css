@@ -1,5 +1,7 @@
+
 .App {
   text-align: center;
+  max-height: 100vh;
 }
 
 .App-header {
@@ -15,6 +17,42 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+#basketballCardBackground {
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/81Q%2Bb%2BLnDbL._SL1125_.jpg);
+
+  background-attachment: fixed;
+  /* background-size: contain; */
+  background-repeat: no-repeat;
+
+}
+
+#baseballCardBackground {
+  background-image: url(https://images2.alphacoders.com/529/thumb-1920-529289.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* background-size: contain; */
+
+}
+
+#golfCardBackground {
+  background-image: url(https://cdn.wallpapersafari.com/40/31/RIXvde.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+#soccerCardBackground {
+  background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VSO4z5m/soccer-stadium-balls-bouncing-background_41beoefkg__F0000.png);
+  background-attachment: fixed;
+  background-size: contain;
+
+}
+
+img {
+  height: 15px;
+
 }
 
 .App-link {

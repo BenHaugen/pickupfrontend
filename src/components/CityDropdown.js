@@ -10,7 +10,7 @@ const CityDropdown = props => {
         Search by City
       </h2>
     </div>
-    <form onSubmit={(ev)=> props.chooseGameByCity(ev)}>
+    <form onSubmit={(ev)=> props.filterCities(ev)}>
       <select name="cities">
         <option value="Seattle">Seattle</option>
         <option value="Tacoma">Tacoma</option>

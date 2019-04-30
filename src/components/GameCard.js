@@ -27,10 +27,10 @@ const GameCard = props => {
             Contact of Organizer: {props.game.contact}
           </div>
           <div className="meta text-wrap">
-            Confirmed Players: {props.game.confirmedPlayers}
+            Confirmed Players: {props.game.confirmed}
           </div>
           <div className="meta text-wrap">
-          <button onClick={(ev) => props.increasePlayers(ev)} type="submit">Confirm Play</button>
+          <button onClick={() => props.increasePlayers(props.game)} type="submit">Confirm Play</button>
           </div>
         </div>
 

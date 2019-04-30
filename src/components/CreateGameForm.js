@@ -5,7 +5,7 @@ class CreateGameForm extends React.Component {
     return (
     <div className="ui segment" id="gameform">
     <h4>Create a Game</h4>
-    <form className="ui form" onSubmit={(ev) => this.props.createBasketballGame(ev)}>
+    <form className="ui form" onSubmit={(ev) => this.props.createGame(ev)}>
       <div className="field">
         <label>Sport</label>
         <select className="ui fluid dropdown" name="sport">
@@ -25,25 +25,25 @@ class CreateGameForm extends React.Component {
         </select>
       </div>
       <div className="field">
-        <label>Address</label>
-        <input type="text" name="address" placeholder="Enter Game Address"></input>
+        <label>Location</label>
+        <input type="text" name="address" required placeholder="Enter Location of Game"></input>
       </div>
       <div className="field">
         <label>Date/Time</label>
         <label>(Ex: Sat, May 18 2:30PM)</label>
-        <input type="text" name="date" placeholder="Enter Both Date and Time"></input>
+        <input type="text" name="date" required placeholder="Enter Both Date and Time"></input>
       </div>
       <div className="field">
         <label>Price</label>
-        <input type="text" name="price" placeholder="Enter 'Free' or Cost to Play"></input>
+        <input type="text" name="price" required placeholder="Enter 'Free' or Cost to Play"></input>
       </div>
       <div className="field">
         <label>Contact Number/Email</label>
-        <input type="text" name="contact" placeholder="Enter Phone Number or Email"></input>
+        <input type="text" name="contact" required placeholder="Enter Phone Number or Email"></input>
       </div>
       <div className="field">
         <label>Confirmed Number of Players</label>
-        <input type="text" name="confirmedPlayers" placeholder="Enter at Least '1'"></input>
+        <input type="number" name="confirmed" required placeholder="Enter at Least '1'"></input>
       </div>
         <button className="ui button" type="submit">Submit</button>
       </form>

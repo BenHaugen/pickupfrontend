@@ -11,16 +11,16 @@ class BasketballGames extends Component {
           <button onClick={this.props.homePageClick} type="submit">Home</button>
         </div>
         <div>
-          <CityDropdown chooseGameByCity={this.props.chooseGameByCity}/>
+          <CityDropdown filterCities={this.props.filterBasketballCities}/>
         </div>
-        <div className="ui segment inverted">
+        <div className="ui segment" id="basketballCardBackground">
           <div className="ui container">
             <div className="ui two row grid">
               <div className="row">
                 <div className="ui container">
                   <div className="ui three column grid">
                     {this.props.displayBasketballGames.map((game, id) => {
-                        return <GameCard game={game} key={id} increasePlayers={this.props.increasePlayers}/>
+                        return <GameCard confirmed={this.props.confirmed} game={game} key={id} increasePlayers={this.props.increasePlayers}/>
                       })}
                   </div>
                 </div>
