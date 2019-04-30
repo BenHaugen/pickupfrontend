@@ -7,6 +7,7 @@ import GolfGames from './containers/GolfGames'
 import SoccerGames from './containers/SoccerGames'
 import BaseballGames from './containers/BaseballGames'
 import MyCreatedGames from './containers/MyCreatedGames'
+import MyUpcomingGames from './containers/MyUpcomingGames'
 // import Facebook from './components/Facebook'
 
 class App extends React.Component {
@@ -18,6 +19,8 @@ class App extends React.Component {
     displayGolfGames: [],
     displaySoccerGames: [],
     displayBaseballGames: [],
+    displayMyCreatedGames: [],
+    displayMyUpcomingGames: [],
     showCreateForm: false,
     showBasketballGames: false,
     showGolfGames: false,
@@ -26,6 +29,7 @@ class App extends React.Component {
     showHomePage: false,
     myCreatedGames: false,
     showMyCreatedGames: false,
+    showMyUpcomingGames: false,
     confirmed: ''
   }
 
@@ -37,6 +41,7 @@ class App extends React.Component {
       showSoccerGames: false,
       showBaseballGames: false,
       showMyCreatedGames: false,
+      showMyUpcomingGames: false,
       showHomePage: true
     })
   }
@@ -113,6 +118,10 @@ class App extends React.Component {
       confirmed: ev.target.confirmed.value
     }
 
+    this.setState({
+      displayMyCreatedGames: [...this.state.displayMyCreatedGames, newGame]
+    })
+
 
     fetch('http://localhost:3000/api/v1/games', {
       method: 'POST',
@@ -169,6 +178,14 @@ class App extends React.Component {
         }
       })
     }))
+  }
+
+  handleMyUpcomingGames = (ev) => {
+    console.log("upcoming")
+    this.setState({
+      showMyUpcomingGames: true,
+      showHomePage: false
+    })
   }
 
   handleMyCreatedGames = (ev) => {
@@ -233,19 +250,22 @@ class App extends React.Component {
                                       increasePlayers={this.increasePlayers} filterBaseballCities={this.filterBaseballCities}/>
     }
     else if (this.state.showHomePage !== false) {
-      currentDisplay = <HomePage organizeGame={this.organizeGame}
+      currentDisplay = <HomePage organizeGame={this.organizeGame} handleMyCreatedGames={this.handleMyCreatedGames}
                                  showBasketballCards={this.showBasketballCards} showGolfCards={this.showGolfCards}
                                  showSoccerCards={this.showSoccerCards} showBaseballCards={this.showBaseballCards}
-                                 handleMyCreatedGames={this.handleMyCreatedGames}/>
+                                 handleMyUpcomingGames={this.handleMyUpcomingGames}/>
     }
     else if (this.state.showMyCreatedGames !== false) {
-      currentDisplay = <MyCreatedGames homePageClick={this.homePageClick} myCreatedGames={this.state.myCreatedGames}/>
+      currentDisplay = <MyCreatedGames homePageClick={this.homePageClick} displayMyCreatedGames={this.state.displayMyCreatedGames}/>
+    }
+    else if (this.state.showMyUpcomingGames !== false) {
+      currentDisplay = <MyUpcomingGames homePageClick={this.homePageClick} displayMyUpcomingGames={this.state.displayMyUpcomingGames}/>
     }
     else {
       currentDisplay = <HomePage organizeGame={this.organizeGame} handleMyCreatedGames={this.handleMyCreatedGames}
                                  showBasketballCards={this.showBasketballCards} showGolfCards={this.showGolfCards}
                                  showSoccerCards={this.showSoccerCards} showBaseballCards={this.showBaseballCards}
-                                 />
+                                 handleMyUpcomingGames={this.handleMyUpcomingGames}/>
     }
     return (
 

@@ -11,7 +11,7 @@ const SearchSports = props => {
   return (
     <div>
     <div>
-    <button>Log Out</button><button onClick={(ev) => props.handleMyCreatedGames(ev)}>My Created Games</button>
+    <button>Log Out</button><button onClick={(ev) => props.handleMyUpcomingGames(ev)}>My Upcoming Games</button><button onClick={(ev) => props.handleMyCreatedGames(ev)}>My Created Games</button>
     </div>
       <div>
         <h2 className='ui header'>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import MyCreatedGameCards from '../components/MyCreatedGameCards'
+// import MyCreatedGameCards from '../components/MyCreatedGameCards'
 
-class MyCreatedGames extends Component {
+class MyUpcomingGames extends Component {
 
   render() {
     return (
@@ -11,17 +11,14 @@ class MyCreatedGames extends Component {
         </div>
         <br></br>
         <div>
-        <header className="ui header">Games You're Runnin'</header>
+        <header className="ui header">Your Upcoming Games</header>
         </div>
-        <div className="ui segment" id="myCreatedGamesBackground">
+        <div className="ui segment" id="myUpcomingGamesBackground">
           <div className="ui container">
             <div className="ui two row grid">
               <div className="row">
                 <div className="ui container">
                   <div className="ui three column grid">
-                    {this.props.displayMyCreatedGames.map((game, id) => {
-                        return <MyCreatedGameCards game={game} key={id}/>
-                      })}
                   </div>
                 </div>
               </div>
@@ -34,4 +31,4 @@ class MyCreatedGames extends Component {
 
 }
 
-export default MyCreatedGames;
+export default MyUpcomingGames;
