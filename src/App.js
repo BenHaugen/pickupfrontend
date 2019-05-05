@@ -8,6 +8,7 @@ import SoccerGames from './containers/SoccerGames'
 import BaseballGames from './containers/BaseballGames'
 import MyCreatedGames from './containers/MyCreatedGames'
 import MyUpcomingGames from './containers/MyUpcomingGames'
+import UserLogin from './containers/UserLogin'
 // import Facebook from './components/Facebook'
 
 class App extends React.Component {
@@ -30,6 +31,10 @@ class App extends React.Component {
     myCreatedGames: false,
     showMyCreatedGames: false,
     showMyUpcomingGames: false,
+    loggedIn: false,
+    currentUser: '',
+    name: '',
+    password: '',
     confirmed: ''
   }
 
@@ -46,8 +51,41 @@ class App extends React.Component {
     })
   }
 
+  logMeIn = (ev) => {
+    console.log('logging in')
+    ev.preventDefault()
+    let uservalue = ev.target.userName.value
+    let passwordvalue = ev.target.password.value
+    let data = {
+      name: uservalue,
+      password: passwordvalue
+    }
+    this.setState(data)
+    this.setState({
+      loggedIn: true
+    })
+    fetch('http://localhost:3000/api/v1/users', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', Accept: 'application/json'},
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(json => this.setState({
+      user_id: json.id
+    }))
+  }
+
+  logMeOut = (ev) => {
+    console.log("logging out")
+    this.setState({
+      loggedIn: false,
+      showHomePage: false
+
+    })
+  }
+
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/games')
+    fetch('http://localhost:3000/api/v1/organized_games')
     .then(response => response.json())
     .then(json => this.setState({allGames: json}, () => this.sortSports()))
   }
@@ -106,8 +144,9 @@ class App extends React.Component {
     })
   }
 
-  createGame = (ev) => {
+  createGame = (ev, game) => {
     ev.preventDefault()
+    // console.log('state', state)
     let newGame = {
       sport: ev.target.sport.value,
       city: ev.target.city.value,
@@ -115,15 +154,15 @@ class App extends React.Component {
       date: ev.target.date.value,
       price: ev.target.price.value,
       contact: ev.target.contact.value,
-      confirmed: ev.target.confirmed.value
+      confirmed: ev.target.confirmed.value,
+      user_id: this.state.user_id
     }
-
     this.setState({
       displayMyCreatedGames: [...this.state.displayMyCreatedGames, newGame]
     })
 
 
-    fetch('http://localhost:3000/api/v1/games', {
+    fetch('http://localhost:3000/api/v1/organized_games', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(newGame)
@@ -156,14 +195,28 @@ class App extends React.Component {
     }
   }
 
+  confirmGame = (game) => {
+    fetch('http://localhost:3000/api/v1/confirmed_games', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', Accept: 'application/json'},
+      body: JSON.stringify(game)
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+    this.setState({
+      displayMyUpcomingGames: [...this.state.displayMyUpcomingGames, game]
+    })
+  }
+
   increasePlayers = (game) => {
     let increase = {
       confirmed: game.confirmed + 1
     }
     alert("You have been confirmed for the event. Please do not confirm more than once.")
-    debugger
+    // debugger
     // game object => {id: sprot: confirmed: 3}
-    fetch('http://localhost:3000/api/v1/games/' + game.id, {
+    fetch('http://localhost:3000/api/v1/organized_games/' + game.id, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(increase)
@@ -180,6 +233,26 @@ class App extends React.Component {
     }))
   }
 
+  handleUnconfirm = (e) => {
+    alert("You have officially bailed on this game. We understand things come up, but if you confirm, please try to make the game!!")
+    const unconfirm = this.state.displayMyUpcomingGames.filter(card => {
+      return card.id !== e
+    })
+    this.setState({
+      displayMyUpcomingGames: unconfirm
+    })
+  }
+
+  handleDeleteGame = (e) => {
+    alert("You have officially bailed on this game and let down the squad :(")
+    const deleteGame = this.state.displayMyCreatedGames.filter(card => {
+      return card.id !== e
+    })
+    this.setState({
+      displayMyCreatedGames: deleteGame
+    })
+  }
+
   handleMyUpcomingGames = (ev) => {
     console.log("upcoming")
     this.setState({
@@ -188,8 +261,9 @@ class App extends React.Component {
     })
   }
 
-  handleMyCreatedGames = (ev) => {
-    console.log('myCreatedGames')
+  handleMyCreatedGames = (game) => {
+    console.log('created game', game)
+    // fetch('http://localhost:3000/api/v1/organized_games/')
     this.setState({
       showMyCreatedGames: true,
       showHomePage: false
@@ -235,7 +309,7 @@ class App extends React.Component {
     else if (this.state.showBasketballGames !== false) {
       currentDisplay = <BasketballGames homePageClick={this.homePageClick} displayBasketballGames={this.state.displayBasketballGames}
                                         increasePlayers={this.increasePlayers} filterBasketballCities={this.filterBasketballCities}
-                                        confirmed={this.state.confirmed}/>
+                                        confirmed={this.state.confirmed} confirmGame={this.confirmGame}/>
     }
     else if (this.state.showGolfGames !== false) {
       currentDisplay = <GolfGames homePageClick={this.homePageClick} displayGolfGames={this.state.displayGolfGames}
@@ -253,19 +327,25 @@ class App extends React.Component {
       currentDisplay = <HomePage organizeGame={this.organizeGame} handleMyCreatedGames={this.handleMyCreatedGames}
                                  showBasketballCards={this.showBasketballCards} showGolfCards={this.showGolfCards}
                                  showSoccerCards={this.showSoccerCards} showBaseballCards={this.showBaseballCards}
-                                 handleMyUpcomingGames={this.handleMyUpcomingGames}/>
+                                 handleMyUpcomingGames={this.handleMyUpcomingGames} logMeOut={this.logMeOut}
+                                 />
     }
     else if (this.state.showMyCreatedGames !== false) {
-      currentDisplay = <MyCreatedGames homePageClick={this.homePageClick} displayMyCreatedGames={this.state.displayMyCreatedGames}/>
+      currentDisplay = <MyCreatedGames user_id={this.state.user_id} allGames={this.state.allGames} homePageClick={this.homePageClick} displayMyCreatedGames={this.state.displayMyCreatedGames}
+                        handleDeleteGame={this.handleDeleteGame}/>
     }
     else if (this.state.showMyUpcomingGames !== false) {
-      currentDisplay = <MyUpcomingGames homePageClick={this.homePageClick} displayMyUpcomingGames={this.state.displayMyUpcomingGames}/>
+      currentDisplay = <MyUpcomingGames user_id={this.state.user_id} allGames={this.state.allGames} homePageClick={this.homePageClick} displayMyUpcomingGames={this.state.displayMyUpcomingGames}
+                        handleUnconfirm={this.handleUnconfirm}/>
+    }
+    else if (this.state.loggedIn === false) {
+      currentDisplay = <UserLogin logMeIn={this.logMeIn}/>
     }
     else {
       currentDisplay = <HomePage organizeGame={this.organizeGame} handleMyCreatedGames={this.handleMyCreatedGames}
                                  showBasketballCards={this.showBasketballCards} showGolfCards={this.showGolfCards}
                                  showSoccerCards={this.showSoccerCards} showBaseballCards={this.showBaseballCards}
-                                 handleMyUpcomingGames={this.handleMyUpcomingGames}/>
+                                 handleMyUpcomingGames={this.handleMyUpcomingGames} logMeOut={this.logMeOut}/>
     }
     return (
 

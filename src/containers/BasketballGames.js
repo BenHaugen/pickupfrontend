@@ -20,7 +20,7 @@ class BasketballGames extends Component {
                 <div className="ui container">
                   <div className="ui three column grid">
                     {this.props.displayBasketballGames.map((game, id) => {
-                        return <GameCard confirmed={this.props.confirmed} game={game} key={id} increasePlayers={this.props.increasePlayers}/>
+                        return <GameCard confirmed={this.props.confirmed} game={game} key={id} increasePlayers={this.props.increasePlayers} confirmGame={this.props.confirmGame}/>
                       })}
                   </div>
                 </div>

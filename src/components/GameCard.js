@@ -5,7 +5,6 @@ const GameCard = props => {
     <div className="ui column">
       <div className="card-in-all-cards">
       <div className="ui card">
-        <div className="content" id="content">
           <div className="header">
           </div>
           <div className="meta text-wrap">
@@ -30,9 +29,8 @@ const GameCard = props => {
             Confirmed Players: {props.game.confirmed}
           </div>
           <div className="meta text-wrap">
-          <button onClick={() => props.increasePlayers(props.game)} type="submit">Confirm Play</button>
+          <button onClick={() => {props.increasePlayers(props.game); props.confirmGame(props.game)}} type="submit">Confirm Play</button>
           </div>
-        </div>
 
       </div>
     </div>

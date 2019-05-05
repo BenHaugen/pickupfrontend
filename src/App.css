@@ -6,7 +6,7 @@
 
 .App-header {
   background-color: #282c34;
-  background-image: url(https://cdn.wallpapersafari.com/12/97/ga1jWZ.jpg);
+  background-image: url(https://cdn.shopify.com/s/files/1/1381/1501/products/30027-00-rfr-sports-balls-on-white-background_1600px_1_1024x1024.jpg?v=1468448150);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,12 +19,37 @@
   color: white;
 }
 
+.navBarButtons {
+  border-radius: 1px;
+  border-color: black;
+}
+
+.emoji {
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+          transition:         transform .8s ease-in-out;
+}
+
+.emoji:hover{
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.navBarButtons:hover{
+  transform: scale(1.02);
+}
+
+#organizeButton {
+  border-color: black;
+  border-radius: 40px
+}
+
 #basketballCardBackground {
   background-image: url(https://images-na.ssl-images-amazon.com/images/I/81Q%2Bb%2BLnDbL._SL1125_.jpg);
 
   background-attachment: fixed;
   /* background-size: contain; */
   background-repeat: no-repeat;
+  background-size: cover;
 
 }
 
@@ -32,6 +57,7 @@
   background-image: url(https://images2.alphacoders.com/529/thumb-1920-529289.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: cover;
   /* background-size: contain; */
 
 }
@@ -40,6 +66,7 @@
   background-image: url(https://cdn.wallpapersafari.com/40/31/RIXvde.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 
 }
 
@@ -47,6 +74,7 @@
   background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VSO4z5m/soccer-stadium-balls-bouncing-background_41beoefkg__F0000.png);
   background-attachment: fixed;
   background-size: contain;
+  background-size: cover;
 
 }
 
@@ -69,6 +97,18 @@ img {
   border: none;
 }
 
+#myCreatedGamesBackground {
+  background-color: dodgerblue;
+}
+
+#loginForm {
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+#loginParentDiv {
+}
+
 #gameform {
   border-radius: 20px;
   max-width: 50%;
@@ -78,6 +118,15 @@ img {
 .card {
   border: 5px solid #d3d3d3;
   border-radius: .25rem;
+  height: 15em;
+  font-size: 2.5vh;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: scale(1.12);
 }
 
 .bg-img {
@@ -113,6 +162,10 @@ button {
 
   list-style-type: none;
   line-height: 4em;
+}
+
+.searchButtons:hover{
+  transform: scale(1.18);
 }
 
 @keyframes App-logo-spin {
