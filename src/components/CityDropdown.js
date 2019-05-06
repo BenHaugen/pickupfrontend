@@ -6,7 +6,7 @@ const CityDropdown = props => {
   return (
   <div>
     <div>
-      <h2 className='ui header'>
+      <h2 className='cityHeader'>
         Search by City
       </h2>
     </div>

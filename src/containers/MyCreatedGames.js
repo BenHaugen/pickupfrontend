@@ -16,11 +16,11 @@ class MyCreatedGames extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.props.homePageClick} type="submit">Home</button>
+          <button className="homeButton" onClick={this.props.homePageClick} type="submit">Home</button>
         </div>
         <br></br>
         <div>
-        <header className="ui header">Games You're Runnin'</header>
+        <header className="gamesHeader">Games You're Runnin'</header>
         </div>
         <div className="ui segment" id="myCreatedGamesBackground">
           <div className="ui container">

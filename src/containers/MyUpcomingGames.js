@@ -24,11 +24,11 @@ class MyUpcomingGames extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.props.homePageClick} type="submit">Home</button>
+          <button className="homeButton" onClick={this.props.homePageClick} type="submit">Home</button>
         </div>
         <br></br>
         <div>
-        <header className="ui header">Your Upcoming Games</header>
+        <header className="gamesHeader">Your Upcoming Games</header>
         </div>
         <div className="ui segment" id="myUpcomingGamesBackground">
           <div className="ui container">

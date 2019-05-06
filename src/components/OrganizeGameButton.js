@@ -5,7 +5,7 @@ const OrganizeGameButton = props => {
 
   return (
     <div>
-      <h2 className="ui header">
+      <h2 className="organizeHeader">
       Want to Organize a Game?
       </h2>
     <div>

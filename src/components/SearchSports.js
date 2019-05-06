@@ -15,7 +15,7 @@ const SearchSports = props => {
     </div>
     <br></br>
       <div>
-        <h2 className='ui header'>
+        <h2 className='uiheader'>
           Welcome to Pickup! Choose Your Sport!
         </h2>
       </div>

@@ -2,6 +2,23 @@
 .App {
   text-align: center;
   max-height: 100vh;
+  /* background-image: linear-gradient(black, white); */
+}
+
+.uiDividingHeader {
+  color: white;
+  font-size: 24px;
+}
+
+.uiheader{
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.organizeHeader {
+  color: white;
+  font-size: 30px;
 }
 
 .App-header {
@@ -22,6 +39,7 @@
 .navBarButtons {
   border-radius: 1px;
   border-color: black;
+  color: white;
 }
 
 .emoji {
@@ -39,6 +57,11 @@
 }
 
 #organizeButton {
+  border-color: black;
+  border-radius: 40px
+}
+
+#loginButton {
   border-color: black;
   border-radius: 40px
 }
@@ -78,9 +101,30 @@
 
 }
 
+#body {
+  background-image: linear-gradient(black, white);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
 img {
   height: 15px;
+}
 
+.cityHeader {
+  color: white;
+  font-size: 32px;
+}
+
+.homeButton {
+  color: white;
+  font-size: 16px;
+  border-color: white;
+}
+
+.gamesHeader {
+  color: white;
+  font-size: 32px;
 }
 
 .App-link {
@@ -95,10 +139,12 @@ img {
 
 .searchButtons {
   border: none;
+  color: white;
+  font-size: 20px;
 }
 
 #myCreatedGamesBackground {
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
 }
 
 #loginForm {
@@ -166,6 +212,11 @@ button {
 
 .searchButtons:hover{
   transform: scale(1.18);
+}
+
+.App-title {
+  font-size: 50px;
+  font-family: sans-serif;
 }
 
 @keyframes App-logo-spin {

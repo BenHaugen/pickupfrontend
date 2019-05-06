@@ -6,7 +6,7 @@ class OrganizeGames extends React.Component {
     return (
       <div>
         <div>
-          <button onClick={this.props.homePageClick} type="submit">Home</button>
+          <button className="homeButton" onClick={this.props.homePageClick} type="submit">Home</button>
         </div>
         <div>
           <CreateGameForm createGame={this.props.createGame}/>

@@ -5,14 +5,15 @@ class UserLogin extends React.Component {
     return (
       <div id="loginParentDiv">
       <form className="ui form" id="loginForm" onSubmit={ev => this.props.logMeIn(ev)}>
-      <h4 className="ui dividing header">Enter User Credentials </h4>
+        <br></br>
+      <h4 className="uiDividingHeader">Enter User Credentials </h4>
         <div className="field">
           <input type="text" name="userName" placeholder="Enter Username"/>
         </div>
         <div className="field">
           <input type="password" name="password" placeholder="Enter Password" autoComplete="password"/>
         </div>
-          <button className="ui button" type="submit">Submit</button>
+          <button id="loginButton" className="ui button" type="submit">Submit</button>
       </form>
       <br></br>
       <div>

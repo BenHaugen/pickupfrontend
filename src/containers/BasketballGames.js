@@ -8,7 +8,7 @@ class BasketballGames extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.props.homePageClick} type="submit">Home</button>
+          <button className="homeButton" onClick={this.props.homePageClick} type="submit">Home</button>
         </div>
         <div>
           <CityDropdown filterCities={this.props.filterBasketballCities}/>
