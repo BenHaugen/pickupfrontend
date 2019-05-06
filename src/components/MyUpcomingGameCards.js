@@ -1,41 +1,21 @@
 import React from 'react'
+import {Card, Button} from 'semantic-ui-react'
 
 const MyUpcomingGameCards = props => {
   return (
-    <div className="ui column">
-      <div className="card-in-all-cards">
-      <div className="ui card">
-          <div className="header">
-          </div>
-          <div className="meta text-wrap">
-            Sport: {props.game.sport}
-          </div>
-          <div className="meta text-wrap">
-            City: {props.game.city}
-          </div>
-          <div className="meta text-wrap">
-            Address: {props.game.address}
-          </div>
-          <div className="meta text-wrap">
-            Date/Time: {props.game.date}
-          </div>
-          <div className="meta text-wrap">
-            Price: {props.game.price}
-          </div>
-          <div className="meta text-wrap">
-            Contact of Organizer: {props.game.contact}
-          </div>
-          <div className="meta text-wrap">
-          <button onClick={(e) => props.handleUnconfirm(props.game.id)}>Bail On the Squad</button>
-          </div>
-
-      </div>
-    </div>
-    </div>
-
-
+    <Card
+      description=<div className="meta text-wrap">
+        Sport: {props.game.sport}<br/>
+        City: {props.game.city}<br/>
+        Address: {props.game.address}<br/>
+        Date/Time: {props.game.date}<br/>
+        Price: {props.game.price}<br/>
+        Contact of Organizer: {props.game.contact}<hr/>
+        <Button onClick={(e) => props.handleUnconfirm(props.game.id)}>Bail On the Squad</Button>
+        </div>
+      centered
+      />
   )
-
 }
 
 export default MyUpcomingGameCards
