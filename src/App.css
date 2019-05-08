@@ -162,6 +162,11 @@ img {
   height: 300px
 }
 
+#loginImg {
+  width: 300px;
+  height: 200px;
+}
+
 #myCreatedGamesBackground {
   /* background-color: dodgerblue; */
 }

@@ -24,7 +24,7 @@ class HomePage extends Component {
                       showBaseballCards={this.props.showBaseballCards}
                       handleMyCreatedGames={this.props.handleMyCreatedGames}
                       handleMyUpcomingGames={this.props.handleMyUpcomingGames}
-                      logMeOut={this.props.logMeOut}/>
+                      logMeOut={this.props.logMeOut} name={this.props.name}/>
       </div>
       <div>
         <OrganizeGameButton organizeGame={this.props.organizeGame}/>

@@ -14,18 +14,21 @@ class MyUpcomingGames extends Component {
   state = {
   }
 
+
   handleUnconfirm = (e) => {
     console.log(e)
     alert("You have officially bailed on this game. We understand things come up, but if you confirm, please try to make the game!!")
-    const unconfirm = this.state.displayMyConfirmedGames.filter(card => {
+    const holdVar = this.state.displayMyConfirmedGames.slice()
+    const unconfirm = holdVar.filter(card => {
       return card.id !== e
+    })
+    fetch('https://pickupbackend.herokuapp.com/api/v1/confirmations/' + e, {
+      method: 'DELETE'
     })
     this.setState({
       displayMyConfirmedGames: unconfirm
     })
-    fetch('http://localhost:3000/api/v1/confirmations/' + e, {
-      method: 'DELETE'
-    })
+    this.props.removeConfirmedGame(e)
   }
 
   componentDidMount(){

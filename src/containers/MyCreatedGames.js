@@ -15,10 +15,10 @@ class MyCreatedGames extends Component {
     this.setState({
       displayMyCreatedGames: deleteGame
     })
-    fetch('http://localhost:3000/api/v1/organized_games/' + e, {
+    fetch('https://pickupbackend.herokuapp.com/api/v1/organized_games/' + e, {
       method: 'DELETE'
     })
-    // .then(response => response.json())
+    this.props.removeCreatedGame(e)
   }
 
   componentDidMount(){

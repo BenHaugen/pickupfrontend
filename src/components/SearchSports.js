@@ -17,7 +17,7 @@ const SearchSports = props => {
     <br></br>
       <div>
         <h2 className='uiheader'>
-          Welcome to Pickup! Choose Your Sport!
+          Welcome to Pickup {props.name.charAt(0).toUpperCase() + props.name.slice(1)}! Choose Your Sport!
         </h2>
       </div>
       <div className="nav">

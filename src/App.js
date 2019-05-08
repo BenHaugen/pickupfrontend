@@ -65,7 +65,7 @@ class App extends React.Component {
     this.setState({
       loggedIn: true
     })
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch('https://pickupbackend.herokuapp.com/api/v1/users', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(data)
@@ -87,17 +87,39 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getConfirmedGames()
-    fetch('http://localhost:3000/api/v1/organized_games')
+    fetch('https://pickupbackend.herokuapp.com/api/v1/organized_games')
     .then(response => response.json())
     .then(json => this.setState({allGames: json}, () => this.sortSports()))
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   getConfirmedGames = () => {
-    return fetch('http://localhost:3000/api/v1/confirmations')
+    return fetch('https://pickupbackend.herokuapp.com/api/v1/confirmations')
     .then(response => response.json())
     .then(json => this.setState({
       allConfirmedGames: json
     }))
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  removeConfirmedGame = (id) => {
+    let confirmedCopy = this.state.allConfirmedGames.slice();
+    let newCopy = confirmedCopy.filter(game => game.id !== id)
+    this.setState({
+      allConfirmedGames: newCopy
+    });
+  }
+
+  removeCreatedGame = (id) => {
+    let confirmedCopy = this.state.allGames.slice();
+    let newCopy = confirmedCopy.filter(game => game.id !== id)
+    this.setState({
+      allGames: newCopy
+    })
   }
 
   sortSports = () => {
@@ -168,7 +190,7 @@ class App extends React.Component {
     })
 
 
-    fetch('http://localhost:3000/api/v1/organized_games', {
+    fetch('https://pickupbackend.herokuapp.com/api/v1/organized_games', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(newGame)
@@ -177,6 +199,9 @@ class App extends React.Component {
     .then(json => this.setState({
       allGames: [...this.state.allGames, json]
     }))
+    .catch(err => {
+      console.log(err)
+    })
     if (ev.target.sport.value === "Basketball") {
     alert("Game successfully created. To view game, visit the 'Basketball' section")
     this.setState({
@@ -222,7 +247,7 @@ class App extends React.Component {
       user_id: this.state.user_id
     }
 
-    fetch('http://localhost:3000/api/v1/confirmations', {
+    fetch('https://pickupbackend.herokuapp.com/api/v1/confirmations', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(cGame)
@@ -234,6 +259,9 @@ class App extends React.Component {
           allConfirmedGames: [...this.state.allConfirmedGames, json]
 
         }))
+        .catch(err => {
+          console.log(err)
+        })
       }
 
   //   this.setState({
@@ -250,7 +278,7 @@ class App extends React.Component {
     alert("You have been confirmed for the event. Please do not confirm more than once.")
     // debugger
     // game object => {id: sprot: confirmed: 3}
-    fetch('http://localhost:3000/api/v1/organized_games/' + game.id, {
+    fetch('https://pickupbackend.herokuapp.com/api/v1/organized_games/' + game.id, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(increase)
@@ -320,7 +348,7 @@ class App extends React.Component {
 
   handleMyCreatedGames = (game) => {
     console.log('created game', game)
-    // fetch('http://localhost:3000/api/v1/organized_games/')
+    // fetch('https://pickupbackend.herokuapp.com/api/v1/organized_games/')
     this.setState({
       showMyCreatedGames: true,
       showHomePage: false
@@ -389,15 +417,16 @@ class App extends React.Component {
                                  showBasketballCards={this.showBasketballCards} showGolfCards={this.showGolfCards}
                                  showSoccerCards={this.showSoccerCards} showBaseballCards={this.showBaseballCards}
                                  handleMyUpcomingGames={this.handleMyUpcomingGames} logMeOut={this.logMeOut}
+                                 name={this.state.name}
                                  />
     }
     else if (this.state.showMyCreatedGames !== false) {
       currentDisplay = <MyCreatedGames user_id={this.state.user_id} allGames={this.state.allGames} homePageClick={this.homePageClick} displayMyCreatedGames={this.state.displayMyCreatedGames}
-                        handleDeleteGame={this.handleDeleteGame}/>
+                        handleDeleteGame={this.handleDeleteGame} removeCreatedGame={this.removeCreatedGame}/>
     }
     else if (this.state.showMyUpcomingGames !== false) {
       currentDisplay = <MyUpcomingGames user_id={this.state.user_id} homePageClick={this.homePageClick} displayMyConfirmedGames={this.state.displayMyConfirmedGames}
-                        handleUnconfirm={this.handleUnconfirm} allConfirmedGames={this.state.allConfirmedGames}/>
+                        handleUnconfirm={this.handleUnconfirm} allConfirmedGames={this.state.allConfirmedGames} removeConfirmedGame={this.removeConfirmedGame}/>
     }
     else if (this.state.loggedIn === false) {
       currentDisplay = <UserLogin logMeIn={this.logMeIn}/>
@@ -406,7 +435,8 @@ class App extends React.Component {
       currentDisplay = <HomePage organizeGame={this.organizeGame} handleMyCreatedGames={this.handleMyCreatedGames}
                                  showBasketballCards={this.showBasketballCards} showGolfCards={this.showGolfCards}
                                  showSoccerCards={this.showSoccerCards} showBaseballCards={this.showBaseballCards}
-                                 handleMyUpcomingGames={this.handleMyUpcomingGames} logMeOut={this.logMeOut}/>
+                                 handleMyUpcomingGames={this.handleMyUpcomingGames} logMeOut={this.logMeOut}
+                                 name={this.state.name}/>
     }
     return (
 
