@@ -5,6 +5,12 @@
   /* background-image: linear-gradient(black, white); */
 }
 
+#myCreatedGamesBackground {
+  background-image: linear-gradient(black, white);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
 .uiDividingHeader {
   color: white;
   font-size: 24px;
@@ -19,6 +25,14 @@
 .organizeHeader {
   color: white;
   font-size: 30px;
+}
+
+#cityDropdown {
+  border-color: white;
+}
+
+#dropDownSubmit {
+  border-color: white;
 }
 
 .App-header {
@@ -140,7 +154,12 @@ img {
 .searchButtons {
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 24px;
+}
+
+#pic {
+  width: 400px;
+  height: 300px
 }
 
 #myCreatedGamesBackground {
@@ -172,7 +191,7 @@ img {
 }
 
 .card:hover {
-  transform: scale(1.12);
+  transform: scale(1.07);
 }
 
 .bg-img {
@@ -202,7 +221,7 @@ button {
 
 .nav li{
   display: inline;
-  border: solid 1px black;
+  border: none;
   padding: 10px;
   margin: 10px;
 

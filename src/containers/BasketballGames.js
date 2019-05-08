@@ -3,6 +3,23 @@ import CityDropdown from '../components/CityDropdown'
 import GameCard from '../components/GameCard'
 import {Card} from 'semantic-ui-react'
 class BasketballGames extends Component {
+  state={
+    itemPerRow: 1
+  }
+
+  componentDidMount(){
+    if (window.innerWidth < 800) {
+      this.setState({
+        itemPerRow: 1
+      })
+    } else {
+      this.setState({
+        itemPerRow: 3
+      })
+    }
+  }
+
+
 
   render() {
     return (
@@ -14,9 +31,9 @@ class BasketballGames extends Component {
       <CityDropdown filterCities={this.props.filterBasketballCities}/>
       </div>
        <div className="ui segment" id="basketballCardBackground">
-      <Card.Group>
+      <Card.Group centered itemsPerRow={this.state.itemPerRow}>
         {this.props.displayBasketballGames.map((game, id) => {
-                          return <GameCard confirmed={this.props.confirmed} game={game} key={id} increasePlayers={this.props.increasePlayers} confirmGame={this.props.confirmGame}/>
+                          return <GameCard confirmed={this.props.confirmed} game={game} key={id} increasePlayers={this.props.increasePlayers} confirmGame={this.props.confirmGame} buildConfirmGameObject={this.props.buildConfirmGameObject}/>
                         })}
       </Card.Group>
     </div>

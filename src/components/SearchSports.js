@@ -10,6 +10,7 @@ const SearchSports = props => {
 
   return (
     <div>
+      <br/>
     <div>
     <button className="navBarButtons" onClick={(ev) => props.logMeOut(ev)}>Log Out</button><button className="navBarButtons" onClick={(ev) => props.handleMyUpcomingGames(ev)}>My Upcoming Games</button><button type="submit" className="navBarButtons" onClick={() => props.handleMyCreatedGames(props.game)}>My Created Games</button>
     </div>
@@ -22,9 +23,9 @@ const SearchSports = props => {
       <div className="nav">
         <ul>
           <li><button onClick={(ev) => props.showBasketballCards(ev)} className="searchButtons" type="submit">Basketball <span role="img" className="emoji" aria-label="basketball">🏀</span></button></li>
-          <li><button onClick={(ev) => props.showGolfCards(ev)} className="searchButtons" type='submit'>Golf<span role="img" aria-label="golf">⛳</span></button></li>
-          <li><button onClick={(ev) => props.showSoccerCards(ev)} className="searchButtons" type='submit'>Soccer<span role="img" aria-label="soccer">⚽</span></button></li>
-          <li><button onClick={(ev) => props.showBaseballCards(ev)} className="searchButtons" type='submit'>Baseball<span role="img" aria-label="baseball">⚾</span></button></li>
+          <li><button onClick={(ev) => props.showGolfCards(ev)} className="searchButtons" type='submit'>Golf<span role="img" aria-label="golf"> ⛳</span></button></li>
+          <li><button onClick={(ev) => props.showSoccerCards(ev)} className="searchButtons" type='submit'>Soccer<span role="img" aria-label="soccer"> ⚽</span></button></li>
+          <li><button onClick={(ev) => props.showBaseballCards(ev)} className="searchButtons" type='submit'>Baseball<span role="img" aria-label="baseball"> ⚾</span></button></li>
         </ul>
       </div>
     </div>

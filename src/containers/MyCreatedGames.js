@@ -6,6 +6,21 @@ class MyCreatedGames extends Component {
   state = {
   }
 
+  handleDeleteGame = (e) => {
+    console.log(e)
+    alert("You have officially bailed on this game and let down the squad :(")
+    const deleteGame = this.state.displayMyCreatedGames.filter(card => {
+      return card.id !== e
+    })
+    this.setState({
+      displayMyCreatedGames: deleteGame
+    })
+    fetch('http://localhost:3000/api/v1/organized_games/' + e, {
+      method: 'DELETE'
+    })
+    // .then(response => response.json())
+  }
+
   componentDidMount(){
     let userGames;
     userGames = this.props.allGames.filter(game => game.user_id === this.props.user_id)
@@ -29,7 +44,7 @@ class MyCreatedGames extends Component {
         <Card.Group>
         {this.state.displayMyCreatedGames ?
         this.state.displayMyCreatedGames.map((game, id) => {
-        return <MyCreatedGameCards game={game} key={id} handleDeleteGame={this.props.handleDeleteGame}/>
+        return <MyCreatedGameCards game={game} key={id} handleDeleteGame={this.handleDeleteGame}/>
         })
         : null}
         </Card.Group>

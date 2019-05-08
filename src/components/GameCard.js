@@ -13,7 +13,7 @@ const GameCard = props => {
       Price: {props.game.price}<br/>
       Contact of Organizer: {props.game.contact}<br/>
       Confirmed Players: {props.game.confirmed}<hr/>
-      <Button onClick={() => {props.increasePlayers(props.game); props.confirmGame(props.game)}} type="submit">Confirm Play</Button>
+    <Button onClick={() => {props.increasePlayers(props.game); props.confirmGame(props.game)}} type="submit">Confirm Play</Button>
       </div>
     centered
     />
@@ -23,3 +23,7 @@ const GameCard = props => {
 
 
 export default GameCard
+
+// {() => {props.increasePlayers(props.game); props.confirmGame(props.game)}}
+
+// <Button onClick={() => {props.increasePlayers(props.game); props.confirmGame(props.game); props.buildConfirmGameObject(props.game)}} type="submit">Confirm Play</Button>

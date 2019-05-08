@@ -9,18 +9,32 @@ class MyUpcomingGames extends Component {
   //   .then(json => console.log(json))
   // }
   // .then(json => this.setState({
-  //   displayMyUpcomingGames: json
+  //   displayMyConfirmedGames: json
   // }))
-  // state = {
-  // }
-  //
-  // componentDidMount(){
-  //   let userGames;
-  //   userGames = this.props.allGames.filter(game => game.user_id === this.props.user_id)
-  //   this.setState({
-  //     displayMyUpcomingGames: userGames
-  //   })
-  // }
+  state = {
+  }
+
+  handleUnconfirm = (e) => {
+    console.log(e)
+    alert("You have officially bailed on this game. We understand things come up, but if you confirm, please try to make the game!!")
+    const unconfirm = this.state.displayMyConfirmedGames.filter(card => {
+      return card.id !== e
+    })
+    this.setState({
+      displayMyConfirmedGames: unconfirm
+    })
+    fetch('http://localhost:3000/api/v1/confirmations/' + e, {
+      method: 'DELETE'
+    })
+  }
+
+  componentDidMount(){
+    let userGames;
+    userGames = this.props.allConfirmedGames.filter(game => game.user.id === this.props.user_id)
+    this.setState({
+      displayMyConfirmedGames: userGames
+    })
+  }
 
   render() {
     return (
@@ -33,11 +47,11 @@ class MyUpcomingGames extends Component {
         <header className="gamesHeader">Your Upcoming Games</header>
       </div>
       <br/>
-    <div className="ui segment" id="myUpcomingGamesBackground">
+    <div className="ui segment" id="myCreatedGamesBackground">
       <Card.Group>
-      {this.props.displayMyUpcomingGames ?
-      this.props.displayMyUpcomingGames.map((game, id) => {
-      return <MyUpcomingGameCards game={game} key={id} handleUnconfirm={this.props.handleUnconfirm}/>
+      {this.state.displayMyConfirmedGames ?
+      this.state.displayMyConfirmedGames.map((game, id) => {
+      return <MyUpcomingGameCards game={game} key={id} handleUnconfirm={this.handleUnconfirm}/>
       })
       : null}
       </Card.Group>
@@ -71,7 +85,7 @@ export default MyUpcomingGames;
 //               <div className="row">
 //                 <div className="ui container">
 //                   <div className="ui three column grid">
-//                   {this.props.displayMyUpcomingGames.map((game, id) => {
+//                   {this.props.displayMyConfirmedGames.map((game, id) => {
 //                       return <MyUpcomingGameCards game={game} key={id} handleUnconfirm={this.props.handleUnconfirm}/>
 //                     })}
 //                   </div>
