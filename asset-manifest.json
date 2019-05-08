@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/pickupfrontend/static/css/main.b6daa949.chunk.css",
+    "main.js": "/pickupfrontend/static/js/main.ce909260.chunk.js",
+    "main.js.map": "/pickupfrontend/static/js/main.ce909260.chunk.js.map",
+    "runtime~main.js": "/pickupfrontend/static/js/runtime~main.9c91c837.js",
+    "runtime~main.js.map": "/pickupfrontend/static/js/runtime~main.9c91c837.js.map",
+    "static/css/2.7e9a03c1.chunk.css": "/pickupfrontend/static/css/2.7e9a03c1.chunk.css",
+    "static/js/2.b91c49da.chunk.js": "/pickupfrontend/static/js/2.b91c49da.chunk.js",
+    "static/js/2.b91c49da.chunk.js.map": "/pickupfrontend/static/js/2.b91c49da.chunk.js.map",
+    "index.html": "/pickupfrontend/index.html",
+    "precache-manifest.73f07dfc015c48ed2b802c5a43ade3ec.js": "/pickupfrontend/precache-manifest.73f07dfc015c48ed2b802c5a43ade3ec.js",
+    "service-worker.js": "/pickupfrontend/service-worker.js",
+    "static/css/2.7e9a03c1.chunk.css.map": "/pickupfrontend/static/css/2.7e9a03c1.chunk.css.map",
+    "static/css/main.b6daa949.chunk.css.map": "/pickupfrontend/static/css/main.b6daa949.chunk.css.map",
+    "static/media/semantic.min.css": "/pickupfrontend/static/media/outline-icons.ef60a4f6.woff"
+  }
+}
