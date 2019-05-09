@@ -85,14 +85,18 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount() {
-    this.getConfirmedGames()
+  handleUpdateFilter = () => {
     fetch('https://pickupbackend.herokuapp.com/api/v1/organized_games')
     .then(response => response.json())
     .then(json => this.setState({allGames: json}, () => this.sortSports()))
     .catch(err => {
       console.log(err)
     })
+  }
+
+  componentDidMount() {
+    this.getConfirmedGames()
+    this.handleUpdateFilter()
   }
 
   getConfirmedGames = () => {
@@ -139,37 +143,41 @@ class App extends React.Component {
     })
   }
 
+  handlefilterBySport = (sportName, location, sportType) => {
+    fetch('https://pickupbackend.herokuapp.com/api/v1/organized_games')
+    .then(response => response.json())
+    .then(json =>{
+      let z = json.filter(sport => { return sport.sport === sportName})
+      let x = z.filter(city =>{ return city.city === location})
+      this.setState({
+        [sportType]: x
+      })
+    })
+  }
+
   filterBasketballCities = (ev) => {
     ev.preventDefault()
-    let cityChoice = this.state.basketballByCity.filter(card => card.city === ev.target.cities.value)
-    this.setState({
-      displayBasketballGames: cityChoice
-    })
+    console.log(ev.target.cities.value)
+    let y = ev.target.cities.value
+    this.handlefilterBySport("Basketball", y, "displayBasketballGames")
   }
 
   filterGolfCities = (ev) => {
     ev.preventDefault()
-    let cityChoice = this.state.golfByCity.filter(card => card.city === ev.target.cities.value)
-    this.setState({
-      displayGolfGames: cityChoice
-    })
+    let y = ev.target.cities.value
+    this.handlefilterBySport("Golf", y, "displayGolfGames")
   }
 
   filterSoccerCities = (ev) => {
     ev.preventDefault()
-    let cityChoice = this.state.soccerByCity.filter(card => card.city === ev.target.cities.value)
-    this.setState({
-      displaySoccerGames: cityChoice
-    })
+    let y = ev.target.cities.value
+    this.handlefilterBySport("Soccer", y, "displaySoccerGames")
   }
 
   filterBaseballCities = (ev) => {
     ev.preventDefault()
-    console.log(ev.target.cities.value)
-    let cityChoice = this.state.baseballByCity.filter(card => card.city === ev.target.cities.value)
-    this.setState({
-      displayBaseballGames: cityChoice
-    })
+    let y = ev.target.cities.value
+    this.handlefilterBySport("Baseball", y, "displayBaseballGames")
   }
 
   createGame = (ev, game) => {
