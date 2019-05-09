@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pickupfrontend/static/css/main.c51f1601.chunk.css",
-    "main.js": "/pickupfrontend/static/js/main.73ae24a4.chunk.js",
-    "main.js.map": "/pickupfrontend/static/js/main.73ae24a4.chunk.js.map",
+    "main.js": "/pickupfrontend/static/js/main.d4e0ef00.chunk.js",
+    "main.js.map": "/pickupfrontend/static/js/main.d4e0ef00.chunk.js.map",
     "runtime~main.js": "/pickupfrontend/static/js/runtime~main.9c91c837.js",
     "runtime~main.js.map": "/pickupfrontend/static/js/runtime~main.9c91c837.js.map",
     "static/css/2.7e9a03c1.chunk.css": "/pickupfrontend/static/css/2.7e9a03c1.chunk.css",
     "static/js/2.fe1f4af5.chunk.js": "/pickupfrontend/static/js/2.fe1f4af5.chunk.js",
     "static/js/2.fe1f4af5.chunk.js.map": "/pickupfrontend/static/js/2.fe1f4af5.chunk.js.map",
     "index.html": "/pickupfrontend/index.html",
-    "precache-manifest.0d5b1775e4653ae4f3b4adcec33a69bb.js": "/pickupfrontend/precache-manifest.0d5b1775e4653ae4f3b4adcec33a69bb.js",
+    "precache-manifest.b13e120de3b6c8f3e07481a5ff66862f.js": "/pickupfrontend/precache-manifest.b13e120de3b6c8f3e07481a5ff66862f.js",
     "service-worker.js": "/pickupfrontend/service-worker.js",
     "static/css/2.7e9a03c1.chunk.css.map": "/pickupfrontend/static/css/2.7e9a03c1.chunk.css.map",
     "static/css/main.c51f1601.chunk.css.map": "/pickupfrontend/static/css/main.c51f1601.chunk.css.map",
