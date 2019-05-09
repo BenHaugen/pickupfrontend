@@ -17,8 +17,8 @@ const CityDropdown = props => {
         <option value="Bellingham">Bellingham</option>
         <option value="Spokane">Spokane</option>
       </select>
-
-        <input id="dropDownSubmit" type="submit"></input>
+{" "}
+        <input id="dropDownSubmit" type="submit" style={{color: "black", backgroundColor: "silver"}}></input>
     </form>
   </div>
     )
