@@ -8,10 +8,12 @@ class UserLogin extends React.Component {
         <br></br>
       <h4 className="uiDividingHeader">Enter User Credentials </h4>
         <div className="field">
-          <input type="text" name="userName" placeholder="Enter Username" required/>
+          <h7 className="credentials">User Name:</h7>
+          <input type="text" name="userName" defaultValue="user" required/>
         </div>
         <div className="field">
-          <input type="password" name="password" placeholder="Enter Password" autoComplete="password" required/>
+        <h7 className="credentials">Password:</h7>
+          <input type="password" name="password" defaultValue="password" autoComplete="password" required/>
         </div>
           <button id="loginButton" className="ui button" type="submit">Submit</button>
       </form>

@@ -11,6 +11,10 @@
   background-repeat: no-repeat;
 }
 
+.credentials {
+  float:left;
+}
+
 .uiDividingHeader {
   color: white;
   font-size: 24px;
