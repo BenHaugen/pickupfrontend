@@ -19,7 +19,7 @@ class UserLogin extends React.Component {
       </form>
       <br></br>
       <div>
-        <img src="https://uproxx.files.wordpress.com/2018/02/mitchell.jpg?quality=100&w=650" id="loginImg" alt="Donovan Mitchell"/>
+        <img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fdavidberri%2Ffiles%2F2018%2F06%2FDMitchellMay2018.jpg" id="loginImg" alt="Donovan Mitchell"/>
       </div>
       </div>
     )
