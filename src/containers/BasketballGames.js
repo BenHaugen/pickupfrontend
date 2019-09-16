@@ -45,7 +45,7 @@ class BasketballGames extends Component {
 
 export default BasketballGames;
 
-{/* // <div>
+/* // <div>
 //   <div>
 //     <button className="homeButton" onClick={this.props.homePageClick} type="submit">Home</button>
 //   </div>
@@ -67,4 +67,4 @@ export default BasketballGames;
 //       </div>
 //     </div>
 //   </div>
-// </div> */}
+// </div> */
