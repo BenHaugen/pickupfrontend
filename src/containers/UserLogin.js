@@ -9,11 +9,11 @@ class UserLogin extends React.Component {
       <h4 className="uiDividingHeader">Enter User Credentials </h4>
         <div className="field">
           <h7 className="credentials">User Name:</h7>
-          <input type="text" name="userName" defaultValue="user" required/>
+          <input type="text" name="userName" defaultValue="test" required/>
         </div>
         <div className="field">
         <h7 className="credentials">Password:</h7>
-          <input type="password" name="password" defaultValue="password" autoComplete="password" required/>
+          <input type="password" name="password" defaultValue="test" autoComplete="password" required/>
         </div>
           <button id="loginButton" className="ui button" type="submit">Submit</button>
       </form>
